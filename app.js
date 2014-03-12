@@ -2,6 +2,7 @@ var os = require('os');
 var strftime= require('strftime');
 var express = require('express')
 var app = express()
+var backend = require('./zway_backend.js')
 
 var address = address()
 var port = 80
@@ -166,27 +167,15 @@ function address() {
 }
 
 function getLightStates(callback) {
-  // TODO Function not implemented jackass!
-  // Get actual light state and pass it to the callback
-  callback([{ id: "1", on: true, bri: 255, name: "Kattovalo" },
-            { id: "2", on: false, bri: 255, name: "Eteisen valo" },
-            { id: "3", on: true, bri: 50, name: "Pöytälamppu" }])
+  backend.getLightStates(callback)
 }
 
 function setLightState(lightState, callback) {
-  // TODO Function not implemented jackass!
-  // Example of lightState argument passed to this function { id: "1", on: true, bri: 124 }
-  // Pass the new lightState to the callback
-  callback(lightState)
+  backend.setLightState(lightState, callback)
 }
 
 function setGroupState(groupId, groupState, callback) {
-  // TODO Function not implemented jackass!
-  // Arguments to this function:
-  // groupId: for all our purposes, it is "0", meaning all lights
-  // data: Most primitive case: { "on": true/false }
-  // Pass the new groupState to the callback
-  callback(groupState)
+  backend.setGroupState(groupId, groupState, callback)
 }
 
 app.listen(port);
