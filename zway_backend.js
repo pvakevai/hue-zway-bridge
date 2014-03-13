@@ -88,7 +88,7 @@ function shouldInstanceBeExcluded(d, i) {
 		state.devices[d].instances[0].commandClasses[114].data.vendorId.value == 271 &&     // Fibaro
 		state.devices[d].instances[0].commandClasses[114].data.productId.value == 4106 &&   // RelaySwitch
 		state.devices[d].instances[0].commandClasses[114].data.productType.value == 1024 && // FGS-211 (with one root node + one phantom)
-		i != 1) {
+		i != 0) {
 		return true
 	}
 
@@ -96,7 +96,7 @@ function shouldInstanceBeExcluded(d, i) {
 		state.devices[d].instances[0].commandClasses[114].data.vendorId.value == 271 &&    // Fibaro
 		state.devices[d].instances[0].commandClasses[114].data.productId.value == 4106 &&  // RelaySwitch
 		state.devices[d].instances[0].commandClasses[114].data.productType.value == 512 && // FGS-221 (with one root node)
-		i == 0) {
+		i == 1) {
 		return true
 	}
 
